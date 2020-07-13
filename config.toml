@@ -225,7 +225,7 @@ enableEmoji = false
     hugo = true
     # whether to show copyright info
     # 是否显示版权信息
-    copyright = false
+    copyright = true
     # whether to show the author
     # 是否显示作者
     author = false
@@ -668,9 +668,5 @@ enableEmoji = false
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
-
-
-
-
 
 
