@@ -109,7 +109,7 @@ enableEmoji = false
         Medium = "@lerra82"
         Gitlab = ""
         Youtubelegacy = ""
-        Youtubecustom = "https://www.youtube.com/user/SECTDirector/"
+        Youtubecustom = "SECTDirector"
         Youtubechannel = ""
         Tumblr = ""
         Quora = ""
@@ -225,7 +225,7 @@ enableEmoji = false
     hugo = true
     # whether to show copyright info
     # 是否显示版权信息
-    copyright = true
+    copyright = false
     # whether to show the author
     # 是否显示作者
     author = false
