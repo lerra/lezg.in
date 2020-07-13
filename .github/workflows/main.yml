@@ -1,4 +1,4 @@
-name: github pages
+name: generate static files from hugo and branch result to gh-pages
 
 on:
   push:
