@@ -4,8 +4,8 @@
     <title>Three.js OBJ viewer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <LINK rel="stylesheet" href="meshviewer/meshviewer.css" type="text/css">
-    <LINK rel="stylesheet" href="meshviewer/lib/jquery-ui/jquery-ui.min.css" type="text/css">
+    <LINK rel="stylesheet" href="/meshviewer/meshviewer.css" type="text/css">
+    <LINK rel="stylesheet" href="/meshviewer/lib/jquery-ui/jquery-ui.min.css" type="text/css">
     <style type="text/css">
 
     </style>
@@ -17,30 +17,30 @@
         <a href="javascript:jQuery('#viewer').empty()">Three.js OBJ viewer</a>
     </div>
     <ul>Exemples OBJ :
-        <li><a href="javascript:meshviewer({'meshFile' : 'meshviewer/getfoten/scene_mesh_textured.obj','mtlFile' : 'meshviewer/getfoten/scene_mesh_textured.mtl', 'container':'#viewer', 'format':'obj'})">Getfoten</a></li>
+        <li><a href="javascript:meshviewer({'meshFile' : '/meshviewer/getfoten/scene_mesh_textured.obj','mtlFile' : '/meshviewer/getfoten/scene_mesh_textured.mtl', 'container':'#viewer', 'format':'obj'})">Getfoten</a></li>
         <li><a href="javascript:meshviewer({'meshFile' : 'https://github.com/lerra/lezg.in/blob/master/public/3dmodels/getfoten/scene_mesh_textured.obj?raw=true','mtlFile' : 'https://raw.githubusercontent.com/lerra/lezg.in/master/public/3dmodels/getfoten/scene_mesh_textured.mtl', 'container':'#viewer', 'format':'obj'})">Getfoten github</a></li>
 </div>
 
 <div id="mainViewer">
 
-    <script src="meshviewer/lib/jquery/jquery.min.js"></script>
-    <script src="meshviewer/lib/jquery-ui/jquery-ui.min.js"></script>
-    <script src="meshviewer/lib/threejs/three.min.js"></script>
+    <script src="/meshviewer/lib/jquery/jquery.min.js"></script>
+    <script src="/meshviewer/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/meshviewer/lib/threejs/three.min.js"></script>
 
-    <script src="meshviewer/lib/threejs/loaders/BinaryLoader.js"></script>
-    <script src="meshviewer/lib/threejs/loaders/MTLLoader.js"></script>
-    <script src="meshviewer/lib/threejs/loaders/OBJMTLLoader.js"></script>
+    <script src="/meshviewer/lib/threejs/loaders/BinaryLoader.js"></script>
+    <script src="/meshviewer/lib/threejs/loaders/MTLLoader.js"></script>
+    <script src="/meshviewer/lib/threejs/loaders/OBJMTLLoader.js"></script>
 
-    <script src="meshviewer/lib/threejs/loaders/UTF8Loader.js"></script>
+    <script src="/meshviewer/lib/threejs/loaders/UTF8Loader.js"></script>
 
-    <script src="meshviewer/lib/threejs/loaders/ctm/lzma.js"></script>
-    <script src="meshviewer/lib/threejs/loaders/ctm/CTMLoader.js"></script>
+    <script src="/meshviewer/lib/threejs/loaders/ctm/lzma.js"></script>
+    <script src="/meshviewer/lib/threejs/loaders/ctm/CTMLoader.js"></script>
 
-    <script src="meshviewer/lib/threejs/Detector.js"></script>
-    <script src="meshviewer/lib/threejs/TrackballControls.js"></script>
-    <script src="meshviewer/lib/threejs/libs/stats.min.js"></script>
+    <script src="/meshviewer/lib/threejs/Detector.js"></script>
+    <script src="/meshviewer/lib/threejs/TrackballControls.js"></script>
+    <script src="/meshviewer/lib/threejs/libs/stats.min.js"></script>
 
-    <script id="objectView" src="meshviewer/meshviewer.js"></script>
+    <script id="objectView" src="/meshviewer/meshviewer.js"></script>
 
     <div id="viewer"></div>
     <div id="progress"></div>
@@ -78,14 +78,14 @@
                 </div>
                 <div id="pan-buttons">
                     <p>PAN</p>
-                        <img src="meshviewer/assetsicons/24/square_empty_icon&24.png" /><img src="meshviewer/assetsicons/24/sq_br_up_icon&24.png" onclick="javascript:translateUp()"/><br/>
-                        <img src="meshviewer/assetsicons/24/sq_br_prev_icon&24.png" onclick="javascript:translateLeft()"/><img src="meshviewer/assetsicons/24/square_shape_icon&24.png" onclick="javascript:translateReset()"/><img src="meshviewer/assetsicons/24/sq_br_next_icon&24.png" onclick="javascript:translateRight()"/><br/>
-                        <img src="meshviewer/assetsicons/24/square_empty_icon&24.png" /><img src="meshviewer/assetsicons/24/sq_br_down_icon&24.png" onclick="javascript:translateDown()"/><br/>
+                        <img src="/meshviewer/assetsicons/24/square_empty_icon&24.png" /><img src="/meshviewer/assetsicons/24/sq_br_up_icon&24.png" onclick="javascript:translateUp()"/><br/>
+                        <img src="/meshviewer/assetsicons/24/sq_br_prev_icon&24.png" onclick="javascript:translateLeft()"/><img src="/meshviewer/assetsicons/24/square_shape_icon&24.png" onclick="javascript:translateReset()"/><img src="/meshviewer/assetsicons/24/sq_br_next_icon&24.png" onclick="javascript:translateRight()"/><br/>
+                        <img src="/meshviewer/assetsicons/24/square_empty_icon&24.png" /><img src="/meshviewer/assetsicons/24/sq_br_down_icon&24.png" onclick="javascript:translateDown()"/><br/>
                 </div>
                 <div id="zoom-buttons">
                     <P>ZOOM</P>
-                        <img src="meshviewer/assetsicons/24/sq_minus_icon&24.png" onclick="javascript:zoomOut()"/>
-                        <img src="meshviewer/assetsicons/24/sq_plus_icon&24.png" onclick="javascript:zoomIn()" /><br/>
+                        <img src="/meshviewer/assetsicons/24/sq_minus_icon&24.png" onclick="javascript:zoomOut()"/>
+                        <img src="/meshviewer/assetsicons/24/sq_plus_icon&24.png" onclick="javascript:zoomIn()" /><br/>
                 </div>
                 <div id="advanced-toggler-buttons">
                     <P>TOGGLERS</P>
