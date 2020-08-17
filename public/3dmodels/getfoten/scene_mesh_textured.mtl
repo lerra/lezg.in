@@ -1,0 +1,90 @@
+newmtl material_09
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_09_map_Kd.jpg
+
+newmtl material_08
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_08_map_Kd.jpg
+
+newmtl material_07
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_07_map_Kd.jpg
+
+newmtl material_06
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_06_map_Kd.jpg
+
+newmtl material_05
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_05_map_Kd.jpg
+
+newmtl material_04
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_04_map_Kd.jpg
+
+newmtl material_03
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_03_map_Kd.jpg
+
+newmtl material_00
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_00_map_Kd.jpg
+
+newmtl material_02
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_02_map_Kd.jpg
+
+newmtl material_01
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+Tr 1
+illum 1
+Ns 1
+map_Kd scene_mesh_textured_material_01_map_Kd.jpg
+
