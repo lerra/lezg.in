@@ -90,7 +90,7 @@ enableEmoji = false
           # title shown in home page (HTML format is supported)
           title = "Lezgin Bakircioglu"
           # subtitle shown in home page
-          subtitle = "A security geek that loves technology"
+          subtitle = "A security geek that loves technology and know how to scale it"
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
@@ -208,7 +208,7 @@ enableEmoji = false
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-      post = " - I make tech secure & scalable"
+      post = ""
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
       typeit = true
