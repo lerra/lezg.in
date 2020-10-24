@@ -40,7 +40,7 @@ enableEmoji = false
       # site description
       description = "Lezgin Bakircioglu's personal site"
       # site keywords
-      keywords = ["lezgin bakircioglu"]
+      keywords = ["lezgin bakircioglu scalale secure aws serverless"]
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -211,7 +211,7 @@ enableEmoji = false
       post = " - I make tech secure & scalable"
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
-      typeit = false
+      typeit = true
 
   # Footer config
   # 页面底部信息配置
