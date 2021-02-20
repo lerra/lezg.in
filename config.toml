@@ -4,7 +4,10 @@ baseURL = "https://lezg.in"
 defaultContentLanguage = "en"
 # theme
 # 主题
-theme = "LoveIt"
+theme = "uBlogger"
+# themes directory
+# 主题目录
+themesDir = "themes"
 
 # website title
 # 网站标题
@@ -15,10 +18,10 @@ title = "Lezgin Bakircioglu"
 enableRobotsTXT = true
 # whether to use git commit log
 # 是否使用 git 信息
-enableGitInfo = false
+enableGitInfo = true
 # whether to use emoji code
 # 是否使用 emoji 代码
-enableEmoji = false
+enableEmoji = true
 
 [languages]
   [languages.en]
@@ -31,16 +34,33 @@ enableEmoji = false
     hasCJKLanguage = false
     # default amount of posts in each pages
     paginate = 12
-    # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = "UA-172523600-1"
     # copyright description used only for seo schema
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # Menu config
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        # you can add extra information before the name (HTML format is supported), such as icons
+        pre = ""
+        # you can add extra information after the name (HTML format is supported), such as icons
+        post = ""
+        name = "Posts"
+        url = "/posts/"
+        # title will be shown when you hover on this menu link.
+        title = ""
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "github"
+        pre = "<i class='fab fa-github fa-fw'></i>"
+        post = ""
+        name = ""
+        url = "https://github.com/upagge/ublogger"
+        title = "GitHub"
+        weight = 6
     [languages.en.params]
-      # site description
       description = "Lezgin Bakircioglu's personal site"
       # site keywords
-      keywords = ["lezgin bakircioglu scalale secure aws serverless"]
+      keywords = ["lezgin bakircioglu", "scalale systems", "secure systems and platforms", "aws serverless"]
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -57,7 +77,7 @@ enableEmoji = false
         tileColor = "#da532c"
       # Search config
       [languages.en.params.search]
-        enable = false
+        enable = true
         # type of search engine ("lunr", "algolia")
         type = "algolia"
         # max index length of the chunked content
@@ -86,7 +106,7 @@ enableEmoji = false
           # Gravatar Email for preferred avatar in home page
           gravatarEmail = ""
           # URL of avatar shown in home page
-          avatarURL = "/bitmoji.png"
+          avatarURL = "/images/bitmoji.png"
           # title shown in home page (HTML format is supported)
           title = "Lezgin Bakircioglu"
           # subtitle shown in home page
@@ -97,7 +117,12 @@ enableEmoji = false
           social = true
           # disclaimer (HTML format is supported)
           disclaimer = ""
+
         # Home page posts
+        [languages.en.params.home.posts]
+          enable = true
+          # special amount of posts in each home posts page
+          paginate = 6
       # Social config in home page
       [languages.en.params.social]
         GitHub = "lerra"
@@ -156,25 +181,22 @@ enableEmoji = false
         Googlescholar = ""
         Researchgate = ""
         Thingiverse = ""
-        Devto = ""
+        Devto = "lerra"
         Gitea = ""
         XMPP = ""
         Matrix = ""
         Bilibili = ""
         Email = "hello@lezg.in"
-        RSS = false
-
+        RSS = true
 
 [params]
-  # LoveIt theme version
-  # LoveIt 主题版本
-  version = "0.2.X"
+  # uBlogger theme version
+  version = "1.3.X"
   # site default theme ("light", "dark", "auto")
-  # 网站默认主题 ("light", "dark", "auto")
-  defaultTheme = "auto"
+  defaultTheme = "dark"
   # public git repo url only then enableGitInfo is true
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = "https://github.com/dillonzq/LoveIt"
+  gitRepo = "https://github.com/upagge/dolboblog-theme"
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
@@ -225,13 +247,13 @@ enableEmoji = false
     hugo = true
     # whether to show copyright info
     # 是否显示版权信息
-    copyright = false
+    copyright = true
     # whether to show the author
     # 是否显示作者
     author = false
     # site creation time
     # 网站创立年份
-    since = 2019
+    since = 2020
     # ICP info only in China (HTML format is supported)
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     icp = ""
@@ -265,6 +287,90 @@ enableEmoji = false
     # RSS 文章数目
     rss = 10
 
+  # Comment config
+  # 评论系统设置
+  [params.comment]
+    enable = true
+    [params.comment.remark42]
+      enable = false
+      host = "https://comments.upagge.ru"
+      site = "documentation"
+      locale = "en"
+    # Disqus comment config (https://disqus.com/)
+    # Disqus 评论系统设置 (https://disqus.com/)
+    [params.comment.disqus]
+      enable = false
+      # Disqus shortname to use Disqus in posts
+      # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
+      shortname = ""
+    # Gitalk comment config (https://github.com/gitalk/gitalk)
+    # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
+    [params.comment.gitalk]
+      enable = false
+      owner = ""
+      repo = ""
+      clientId = ""
+      clientSecret = ""
+    # Valine comment config (https://github.com/xCss/Valine)
+    # Valine 评论系统设置 (https://github.com/xCss/Valine)
+    [params.comment.valine]
+      enable = false
+      appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
+      appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
+      placeholder = ""
+      avatar = "mp"
+      meta= ""
+      pageSize = 10
+      lang = ""
+      visitor = true
+      recordIP = true
+      highlight = true
+      enableQQ = false
+      serverURLs = "https://"
+      # emoji data file name, default is "google.yml"
+      # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
+      # located in "themes/uBlogger/assets/data/emoji/" directory
+      # you can store your own data files in the same path under your project:
+      # "assets/data/emoji/"
+      # emoji 数据文件名称, 默认是 "google.yml"
+      # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
+      # 位于 "themes/uBlogger/assets/data/emoji/" 目录
+      # 可以在你的项目下相同路径存放你自己的数据文件:
+      # "assets/data/emoji/"
+      emoji = ""
+    # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
+    # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
+    [params.comment.facebook]
+      enable = false
+      width = "100%"
+      numPosts = 10
+      appId = ""
+      languageCode = ""
+    # Telegram comments config (https://comments.app/)
+    # Telegram comments 评论系统设置 (https://comments.app/)
+    [params.comment.telegram]
+      enable = false
+      siteID = ""
+      limit = 5
+      height = ""
+      color = ""
+      colorful = true
+      dislikes = false
+      outlined = false
+    # Commento comment config (https://commento.io/)
+    # Commento comment 评论系统设置 (https://commento.io/)
+    [params.comment.commento]
+      enable = false
+    # Utterances comment config (https://utteranc.es/)
+    # Utterances comment 评论系统设置 (https://utteranc.es/)
+    [params.comment.utterances]
+      enable = false
+      # owner/repo
+      repo = ""
+      issueTerm = "pathname"
+      label = ""
+      lightTheme = "github-light"
+      darkTheme = "github-dark"
   # Page config
   # 文章页面配置
   [params.page]
@@ -348,7 +454,7 @@ enableEmoji = false
       darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
       # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
       # 是否添加 NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
-      navigation = true
+      navigation = false
       # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
       # 是否添加 GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
       geolocate = true
@@ -362,14 +468,14 @@ enableEmoji = false
     # 文章页面的分享信息设置
     [params.page.share]
       enable = true
-      Twitter = false
-      Facebook = false
-      Linkedin = false
+      Twitter = true
+      Facebook = true
+      Linkedin = true
       Whatsapp = false
       Pinterest = false
       Tumblr = false
       HackerNews = false
-      Reddit = false
+      Reddit = true
       VK = false
       Buffer = false
       Xing = false
@@ -379,7 +485,7 @@ enableEmoji = false
       Digg = false
       Stumbleupon = false
       Flipboard = false
-      Weibo = true
+      Weibo = false
       Renren = false
       Myspace = false
       Blogger = false
@@ -389,85 +495,7 @@ enableEmoji = false
       Skype = false
       Trello = false
       Mix = false
-    # Comment config
-    # 评论系统设置
-    [params.page.comment]
-      enable = true
-      # Disqus comment config (https://disqus.com/)
-      # Disqus 评论系统设置 (https://disqus.com/)
-      [params.page.comment.disqus]
-        enable = false
-        # Disqus shortname to use Disqus in posts
-        # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
-        shortname = ""
-      # Gitalk comment config (https://github.com/gitalk/gitalk)
-      # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
-      [params.page.comment.gitalk]
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
-      # Valine comment config (https://github.com/xCss/Valine)
-      # Valine 评论系统设置 (https://github.com/xCss/Valine)
-      [params.page.comment.valine]
-        enable = false
-        appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
-        appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
-        placeholder = ""
-        avatar = "mp"
-        meta= ""
-        pageSize = 10
-        lang = ""
-        visitor = true
-        recordIP = true
-        highlight = true
-        enableQQ = false
-        serverURLs = "https://leancloud.hugoloveit.com"
-        # emoji data file name, default is "google.yml"
-        # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
-        # located in "themes/LoveIt/assets/data/emoji/" directory
-        # you can store your own data files in the same path under your project:
-        # "assets/data/emoji/"
-        # emoji 数据文件名称, 默认是 "google.yml"
-        # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
-        # 位于 "themes/LoveIt/assets/data/emoji/" 目录
-        # 可以在你的项目下相同路径存放你自己的数据文件:
-        # "assets/data/emoji/"
-        emoji = ""
-      # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
-      # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
-      [params.page.comment.facebook]
-        enable = false
-        width = "100%"
-        numPosts = 10
-        appId = ""
-        languageCode = ""
-      # Telegram comments config (https://comments.app/)
-      # Telegram comments 评论系统设置 (https://comments.app/)
-      [params.page.comment.telegram]
-        enable = false
-        siteID = ""
-        limit = 5
-        height = ""
-        color = ""
-        colorful = true
-        dislikes = false
-        outlined = false
-      # Commento comment config (https://commento.io/)
-      # Commento comment 评论系统设置 (https://commento.io/)
-      [params.page.comment.commento]
-        enable = false
-      # Utterances comment config (https://utteranc.es/)
-      # Utterances comment 评论系统设置 (https://utteranc.es/)
-      [params.page.comment.utterances]
-        enable = false
-        # owner/repo
-        repo = ""
-        issueTerm = "pathname"
-        label = ""
-        lightTheme = "github-light"
-        darkTheme = "github-dark"
+
     # Third-party library config
     # 第三方库配置
     [params.page.library]
@@ -534,7 +562,12 @@ enableEmoji = false
     enable = true
     # Google Analytics
     [params.analytics.google]
+      # [UA-XXXXXXXX-X] google analytics code
+      # [UA-XXXXXXXX-X] 谷歌分析代号
       id = "UA-172523600-1"
+      # whether to use gtag linked
+      # 是否使用gtag链接
+      gtag = false
       # whether to anonymize IP
       # 是否匿名化用户 IP
       anonymizeIP = true
@@ -544,6 +577,8 @@ enableEmoji = false
       # server url for your tracker if you're self hosting
       # 自行托管追踪器时的主机路径
       server = ""
+    [params.analytics.yandex]
+      id = "70532758"
 
   # Cookie consent config
   # Cookie 许可配置
@@ -561,12 +596,12 @@ enableEmoji = false
   [params.cdn]
     # CDN data file name, disabled by default
     # ("jsdelivr.yml")
-    # located in "themes/LoveIt/assets/data/cdn/" directory
+    # located in "themes/uBlogger/assets/data/cdn/" directory
     # you can store your own data files in the same path under your project:
     # "assets/data/cdn/"
     # CDN 数据文件名称, 默认不启用
     # ("jsdelivr.yml")
-    # 位于 "themes/LoveIt/assets/data/cdn/" 目录
+    # 位于 "themes/uBlogger/assets/data/cdn/" 目录
     # 可以在你的项目下相同路径存放你自己的数据文件:
     # "assets/data/cdn/"
     data = "jsdelivr.yml"
@@ -591,8 +626,6 @@ enableEmoji = false
     guessSyntax = true
     lineNos = true
     lineNumbersInTable = true
-    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
-    # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
   # Goldmark is from Hugo 0.60 the default library used for Markdown
   # Goldmark 是 Hugo 0.60 以来的默认 Markdown 解析库
@@ -618,9 +651,7 @@ enableEmoji = false
 # Author config
 # 作者配置
 [author]
-  name = "Lezgin Bakircioglu"
-  email = "hello@lezg.in"
-  link = ""
+  name = "upagge.en"
 
 # Sitemap config
 # 网站地图配置
@@ -668,5 +699,3 @@ enableEmoji = false
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
-
-
