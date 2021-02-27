@@ -1,4 +1,6 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Lezgin Bakircioglu</title><link>https://lezg.in/</link><description>The private geeky and techy stuff I do will be found here</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Feb 2021 21:29:01 +0800</lastBuildDate><atom:link href="https://lezg.in/index.xml" rel="self" type="application/rss+xml"/><item><title>Adding an API to my grind and brew coffee machine to make it smart</title><link>https://lezg.in/adding-an-api-to-my-grind-and-brew-coffee-machine-to-make-it-smart/</link><pubDate>Fri, 19 Feb 2021 21:29:01 +0800</pubDate><author>lerra.en</author><guid>https://lezg.in/adding-an-api-to-my-grind-and-brew-coffee-machine-to-make-it-smart/</guid><description><![CDATA[<p>This post will guide you through on how to connect a dumb Philips grind &amp; brew hd7762 coffee machine to your privacy first home automation solution based on home assistant and esphome. Most important, with a high Wife Acceptance Factor.</p>
+<h2 id="expectations">Expectations</h2>
+<p>I would ed</p>
 <h2 id="hardware-id">Hardware</h2>
 <ul>
 <li><a href="https://amzn.to/3aCMOwJ" target="_blank" rel="noopener noreffer">Philips Grind & Brew HD7762</a></li>
@@ -11,7 +13,7 @@
 <li>cables &amp; usb power adapter.</li>
 </ul>
 <h2 id="repository-id">Repository</h2>
-<p><a href="https://github.com/lerra/home-automation/tree/main/iot_enabling_grind_and_brew_hd7762_coffee_machine" target="_blank" rel="noopener noreffer">github</a></p>
+<p><a href="https://github.com/lerra/home-automation/tree/main/philips_grind_and_brew_hd7762_coffee_machine/" target="_blank" rel="noopener noreffer">github</a></p>
 <h2 id="the-story">The story</h2>
 <p>A couple of years ago, I started with a wake-up routine with my privacy first home automation. Waking up to an emulated sunrise with red, transforming to yellow and then to normal light over a period of fifteen minutes and then, the TV kicking on the circle of life from the Lion king movie. I could start up every morning with a smile and less grumpy.</p>
 <p>So, I started to think, what&rsquo;s missing to make my mornings even more awesome. The idea with having fresh coffee would be a great. The only problem I had then was the time, then came the pandemic, as jay-z would say, I got 99 problems, but a time ain&rsquo;t one.</p>
