@@ -25,10 +25,13 @@ draft: false
 
 
 ---
-
+ 
 This post will guide you through on how to connect a dumb Philips grind & brew hd7762 coffee machine to your privacy first home automation solution based on home assistant and esphome. Most important, with a high Wife Acceptance Factor.
 
 <!--more-->
+
+## Expectations
+I would ed
 
 ## Hardware {#hardware-id}
 * {{< link href="https://amzn.to/3aCMOwJ" content="Philips Grind & Brew HD7762" >}}
@@ -39,7 +42,7 @@ This post will guide you through on how to connect a dumb Philips grind & brew h
 
 
 ## Repository {#repository-id}
-[github](https://github.com/lerra/home-automation/tree/main/iot_enabling_grind_and_brew_hd7762_coffee_machine)
+[github](https://github.com/lerra/home-automation/tree/main/philips_grind_and_brew_hd7762_coffee_machine/)
 
 ## The story
 
