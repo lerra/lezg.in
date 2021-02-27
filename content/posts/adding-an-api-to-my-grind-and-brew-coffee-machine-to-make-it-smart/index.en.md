@@ -1,8 +1,8 @@
 ---
-title: "Adding an API to my grind and brew coffee machine and making it smart"
+title: "Adding an API to my grind and brew coffee machine to make it smart"
 date: 2021-02-19T21:29:01+08:00
 lastmod: 2021-02-27T21:29:01+08:00
-description: "This post will guide you through on how do connect a dumb coffee machine to be connected to home assistant and the possibility to add it to your automated morning routine through home assistant and esphome."
+description: "This post will guide you through on how to connect a dumb Philips grind & brew hd7762 coffee machine to your privacy first home automation solution based on home assistant and esphome. Most important, with a high Wife Acceptance Factor."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
@@ -26,11 +26,10 @@ draft: false
 
 ---
 
-This post will guide you through on how to connect a dumb Philips grind & brew hd7762 coffee machine to be connected to your home automation and the possibility to add it to your automated morning routine.
+This post will guide you through on how to connect a dumb Philips grind & brew hd7762 coffee machine to your privacy first home automation solution based on home assistant and esphome. Most important, with a high Wife Acceptance Factor.
 
 <!--more-->
 
-# Adding an API to my grind and brew coffee machine and making it smart
 ## Hardware {#hardware-id}
 * {{< link href="https://amzn.to/3aCMOwJ" content="Philips Grind & Brew HD7762" >}}
 * {{< link href="https://amzn.to/2ZyCvDt" content="ESP32 devkit c v4" >}}
@@ -130,6 +129,3 @@ Don't forget to turn on the "keep-warm" functionality on the coffee machine, thi
 Creds goes to the home assistant & esphome team, platform, and frameworks they have built is fantastic and I hope I could drive more users to a privacy first setup and Peter for pushing me during several years to get into the microcontrollers and electronics. 
 
 PS. No ESP32 got killed or injured during the test, mine have been running fine with 4.3V for two months at the time of drafting this article. Btw, feel free to send a [pull request to the article](https://github.com/lerra/lezg.in/blob/master/content/posts/adding-an-api-to-my-grind-and-brew-coffee-machine-to-make-it-smart/index.en.md) or reach out on twitter if you find any errors.
-
-
-

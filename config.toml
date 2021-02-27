@@ -196,7 +196,7 @@ enableEmoji = true
   defaultTheme = "dark"
   # public git repo url only then enableGitInfo is true
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = "https://github.com/upagge/dolboblog-theme"
+  gitRepo = "https://github.com/lerra/lezg.in"
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
@@ -205,7 +205,7 @@ enableEmoji = true
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/logo.png"]
+  images = ["/images/bitmoji.png"]
 
   # Header config
   # 页面头部导航栏配置
