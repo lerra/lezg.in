@@ -51,15 +51,15 @@ void loop() {
 }
 ```
 
-{{< image src="circuit-board-optimized.jpg" caption="The right solder joint is the on microswitch and the left one is the grind microswitch and ground was connected [here](connecting-ground-optimized.jpg)" title="The curcit board of the Philips Grind & Brew HD7762 with the cables soldered to grind and on microswitches" alt="The curcit board of the Philips Grind & Brew HD7762" width="50%" height="50%" >}}
+{{< image src="circuit-board-optimized.jpg" caption="The right solder joint is the on microswitch and the left one is the grind microswitch and ground was connected [here](connecting-ground-optimized.jpg)" title="The curcit board of the Philips Grind & Brew HD7762 with the cables soldered to grind and on microswitches" alt="The curcit board of the Philips Grind & Brew HD7762" width="70%" height="70%" >}}
 
 So, I started to evolve the code and halfway there I bumped over an article in my rss reader about a home assistant project built upon esphome. I realized I was looking into that project a while ago but forget the existence. Even if I have invested some time into the code, I realized that I would never come close to the features esphome. It is tightly integrated with home assistant, the possibility to update the code with the OTA (Over The Air, no need for a usb cable to debug or deploy) and a real time event source api for state & log updates and a rest api, both over json. So, I ported the code to the esphome yaml format and finished it. Bellow you can see what PIN's I used for the ESP32 30-pinout.
 
-{{< image src="ESP32-Pinout-1.jpg" caption="The 30 pins ESP32 I use is a 30 pin" title="The ESP32 pinout" alt="ESP32 PINS"  width="70%" height="70%" >}}In my case, I use the PIN D27 to connect to the "turn on" microswitch on the circuit, D26 is connected to the "start grinding" microswitch and ground to ground. For the CQRobot sensor, ground is connected to ground, VCC (red) to 3V3 and OUT to D23. This will differ depending on the ESP32 you have, checkout [electronics hub the PINs your ESP32 have](https://www.electronicshub.org/esp32-pinout/).
+{{< image src="ESP32-Pinout-1.jpg" caption="The 30 pins ESP32 I use is a 30 pin" title="The ESP32 pinout" alt="ESP32 PINS"  width="80%" height="80%" >}}In my case, I use the PIN D27 to connect to the "turn on" microswitch on the circuit, D26 is connected to the "start grinding" microswitch and ground to ground. For the CQRobot sensor, ground is connected to ground, VCC (red) to 3V3 and OUT to D23. This will differ depending on the ESP32 you have, checkout [electronics hub the PINs your ESP32 have](https://www.electronicshub.org/esp32-pinout/).
 
 To make sure it would get a high [Wife Acceptance Factor](https://en.wikipedia.org/wiki/Wife_acceptance_factor) I also 3D printed a [case for the ESP](https://www.thingiverse.com/thing:3417603) and hided it. The sensor is on the side to quickly identify if it's prepared without touching it as the red LED will be turned on when there is water in the tank. 
 
-{{< image src="combined-optimized.png" title="The ESP32 connected to the coffee machine and the water sensor" alt="ESP32 connected to the coffee machine" width="50%" height="50%">}}
+{{< image src="combined-optimized.png" title="The ESP32 connected to the coffee machine and the water sensor" alt="ESP32 connected to the coffee machine" width="70%" height="70%">}}
 
 
 Finally, I had my coffee machine back in the game after one month.
