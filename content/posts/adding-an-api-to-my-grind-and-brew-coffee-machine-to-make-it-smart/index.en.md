@@ -123,8 +123,11 @@ This is the most used way we get our fresh coffee and it's nice to kick off by t
 # Security
 Esphome does [not (yet) support ssl/tls]( https://github.com/esphome/feature-requests/issues/133) if you dont run a ESP8266 but it is a [poor and unsecure implementation](https://esphome.io/components/mqtt.html?highlight=fingerprint#ssl-fingerprints). I recommend having separate network segments for both the server & ESP32, firewall the communication and use separate wpa2 ssid for the device until there is a TLS feature. 
 
+# Safety
+Don't forget to turn on the "keep-warm" functionality on the coffee machine, this will make the appliance to automatically turn it self off after a set time. I highly recommend it to get a safety functionality outside of the code to take care of such if something would fail.
+
 # Creds
-Creds goes to the home assistant & esphome team, platform, and frameworks they have built is fantastic and I hope I could drive more users to a privacy first setup and Peter for pushing me during several years to get into the microcontrollers and electronics. More stuff is coming!
+Creds goes to the home assistant & esphome team, platform, and frameworks they have built is fantastic and I hope I could drive more users to a privacy first setup and Peter for pushing me during several years to get into the microcontrollers and electronics. 
 
 PS. No ESP32 got killed or injured during the test, mine have been running fine with 4.3V for two months at the time of drafting this article. Btw, feel free to send a [pull request to the article](https://github.com/lerra/lezg.in/blob/master/content/posts/adding-an-api-to-my-grind-and-brew-coffee-machine-to-make-it-smart/index.en.md) or reach out on twitter if you find any errors.
 

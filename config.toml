@@ -54,13 +54,13 @@ enableEmoji = true
         pre = "<i class='fab fa-github fa-fw'></i>"
         post = ""
         name = ""
-        url = "https://github.com/upagge/ublogger"
+        url = "https://github.com/lerra/lezg.in/"
         title = "GitHub"
         weight = 6
     [languages.en.params]
       description = "Lezgin Bakircioglu's personal site"
       # site keywords
-      keywords = ["lezgin bakircioglu", "scalale systems", "secure systems and platforms", "aws serverless"]
+      keywords = ["lezgin bakircioglu", "scale systems", "secure systems and platforms", "aws serverless", "home automation", "privacy first home automation"]
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -134,7 +134,7 @@ enableEmoji = true
         Medium = "@lerra82"
         Gitlab = ""
         Youtubelegacy = ""
-        Youtubecustom = "SECTDirector"
+        Youtubecustom = ""
         Youtubechannel = ""
         Tumblr = ""
         Quora = ""
@@ -186,7 +186,7 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = ""
-        Email = "hello@lezg.in"
+        Email = ""
         RSS = true
 
 [params]
@@ -290,7 +290,7 @@ enableEmoji = true
   # Comment config
   # 评论系统设置
   [params.comment]
-    enable = true
+    enable = false
     [params.comment.remark42]
       enable = false
       host = "https://comments.upagge.ru"
@@ -400,7 +400,7 @@ enableEmoji = true
     linkToMarkdown = true
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
-    rssFullText = false
+    rssFullText = true
     # Table of the contents config
     # 目录配置
     [params.page.toc]
@@ -412,7 +412,7 @@ enableEmoji = true
       keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
-      auto = true
+      auto = false
     # Code config
     # 代码配置
     [params.page.code]
@@ -471,7 +471,7 @@ enableEmoji = true
       Twitter = true
       Facebook = true
       Linkedin = true
-      Whatsapp = false
+      Whatsapp = true
       Pinterest = false
       Tumblr = false
       HackerNews = false
@@ -481,7 +481,7 @@ enableEmoji = true
       Xing = false
       Line = false
       Instapaper = false
-      Pocket = false
+      Pocket = true
       Digg = false
       Stumbleupon = false
       Flipboard = false
@@ -518,8 +518,8 @@ enableEmoji = true
       # Publisher info
       # 出版者信息
       [params.page.seo.publisher]
-        name = "xxxx"
-        logoUrl = "/images/avatar.png"
+        name = "Lezgin Bakircioglu"
+        logoUrl = "/images/bitmoji.png"
 
   # TypeIt config
   # TypeIt 配置
@@ -587,7 +587,7 @@ enableEmoji = true
     # text strings used for Cookie consent banner
     # 用于 Cookie 许可横幅的文本字符串
     [params.cookieconsent.content]
-      message = ""
+      message = "This page uses cookies"
       dismiss = ""
       link = ""
 
@@ -627,6 +627,7 @@ enableEmoji = true
     lineNos = true
     lineNumbersInTable = true
     noClasses = false
+    taskLists = true
   # Goldmark is from Hugo 0.60 the default library used for Markdown
   # Goldmark 是 Hugo 0.60 以来的默认 Markdown 解析库
   [markup.goldmark]
@@ -651,7 +652,7 @@ enableEmoji = true
 # Author config
 # 作者配置
 [author]
-  name = "upagge.en"
+  name = "lerra.en"
 
 # Sitemap config
 # 网站地图配置
