@@ -58,7 +58,7 @@ enableEmoji = true
         title = "GitHub"
         weight = 6
     [languages.en.params]
-      description = "Lezgin Bakircioglu's personal site"
+      description = "The private geeky and techy stuff I do will be found here"
       # site keywords
       keywords = ["lezgin bakircioglu", "scale systems", "secure systems and platforms", "aws serverless", "home automation", "privacy first home automation"]
       # App icon config
@@ -93,13 +93,13 @@ enableEmoji = true
         # whether to use the absolute URL based on the baseURL in search index
         absoluteURL = false
         [languages.en.params.search.algolia]
-          index = "index.en"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+          index = ""
+          appID = ""
+          searchKey = ""
       # Home page config
       [languages.en.params.home]
         # amount of RSS pages
-        rss = 10
+        rss = 20
         # Home page profile
         [languages.en.params.home.profile]
           enable = true
