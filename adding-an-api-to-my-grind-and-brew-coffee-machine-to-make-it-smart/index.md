@@ -34,7 +34,7 @@ Meanwhile, I ordered the Non-contact liquid sensor from CQRobot to be able to de
 
 So, after a month when we met and started to solder the cables to ground, the "turn on" button and the "start grinding" button. We did a test with the on button and ground connected to see if we needed a relay or not, eventually a new ESP if it would get burned during the test. It turned out that the ESP could manage it and you can see it turning on the coffee machine (the red light on the circuit).
 
-{{< image src="code-test-optimized.gif" title="Testing the code on the ESP32 to see if we need a relay or not" alt="ESP32 testing" src_s="code-test-optimized.gif" src_l="code-test-optimized.gif" >}}
+{{< image src="code-test-optimized.gif" title="Testing the code on the ESP32 to see if we need a relay or not" alt="ESP32 testing" >}}
 
 <br />To test the ESP32 if it can handle the 4.3V without burn, the following code was deployed on the ESP through  [arduino studio](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-on-various-platforms-4b3e4a?f=1) before we started to solder. 
 
@@ -51,11 +51,11 @@ void loop() {
 }
 ```
 
-{{< image src="circuit-board-optimized.jpg" caption="The right solder joint is the on microswitch and the left one is the grind microswitch and ground was connected [here](connecting-ground-optimized.jpg)" title="The curcit board of the Philips Grind & Brew HD7762 with the cables soldered to grind and on microswitches" alt="The curcit board of the Philips Grind & Brew HD7762" src_s="circuit-board-optimized.jpg"  >}}
+{{< image src="circuit-board-optimized.jpg" caption="The right solder joint is the on microswitch and the left one is the grind microswitch and ground was connected [here](connecting-ground-optimized.jpg)" title="The curcit board of the Philips Grind & Brew HD7762 with the cables soldered to grind and on microswitches" alt="The curcit board of the Philips Grind & Brew HD7762" >}}
 
 So, I started to evolve the code and halfway there I bumped over an article in my rss reader about a home assistant project built upon esphome. I realized I was looking into that project a while ago but forget the existence. Even if I have invested some time into the code, I realized that I would never come close to the features esphome. It is tightly integrated with home assistant, the possibility to update the code with the OTA (Over The Air, no need for a usb cable to debug or deploy) and a real time event source api for state & log updates and a rest api, both over json. So, I ported the code to the esphome yaml format and finished it. Bellow you can see what PIN's I used for the ESP32 30-pinout.
 
-{{< image src="ESP32-Pinout-1.jpg" caption="The 30 pins ESP32 I use is a 30 pin" title="The ESP32 pinout" alt="ESP32 PINS" src_s="ESP32-Pinout-1.jpg" src_l="ESP32-Pinout-1.jpg" >}}In my case, I use the PIN D27 to connect to the "turn on" microswitch on the circuit, D26 is connected to the "start grinding" microswitch and ground to ground. For the CQRobot sensor, ground is connected to ground, VCC (red) to 3V3 and OUT to D23. This will differ depending on the ESP32 you have, checkout [electronics hub the PINs your ESP32 have](https://www.electronicshub.org/esp32-pinout/).
+{{< image src="ESP32-Pinout-1.jpg" caption="The 30 pins ESP32 I use is a 30 pin" title="The ESP32 pinout" alt="ESP32 PINS" >}}In my case, I use the PIN D27 to connect to the "turn on" microswitch on the circuit, D26 is connected to the "start grinding" microswitch and ground to ground. For the CQRobot sensor, ground is connected to ground, VCC (red) to 3V3 and OUT to D23. This will differ depending on the ESP32 you have, checkout [electronics hub the PINs your ESP32 have](https://www.electronicshub.org/esp32-pinout/).
 
 To make sure it would get a high [Wife Acceptance Factor](https://en.wikipedia.org/wiki/Wife_acceptance_factor) I also 3D printed a [case for the ESP](https://www.thingiverse.com/thing:3417603) and hided it. The sensor is on the side to quickly identify if it's prepared without touching it as the red LED will be turned on when there is water in the tank. 
 
@@ -72,7 +72,7 @@ Start with the PIN's you have on your ESP32 to adjust that (search for "pin:") i
 So, what do I mean by "smart"? From how I see it when I can connect the coffee machine to a something bigger. So, the key is to combine it with other sensors and triggers through the privacy first home automation, home assistant. I have been using it for almost four years and it is powerful and **open**. You can dig deeper into [how to get started](https://www.home-assistant.io/getting-started/) and the crazy amount of [integrations](https://www.home-assistant.io/integrations/).
 
 ### The morning routine (or ritual) {#the-morning-routine-id}
-{{< image src="wakeup-optimized.gif" title="During a 15 minute period, the wakeup routine starts with a emulated sunrise" src_s="wakeup-optimized.gif" src_l="wakeup-optimized.gif" >}}
+{{< image src="wakeup-optimized.gif" title="During a 15 minute period, the wakeup routine starts with a emulated sunrise" >}}
 
 <p>For two years ago, I started with a wake-up routine. Waking up to an emulated sunrise with red, transforming to yellow and then to normal light over a period of fifteen minutes. After a while, the TV turns on and starts the morning music with Circle of life from the Lion king movie in the front. With this, I started my mornings with a smile and less grumpy.
 
@@ -82,14 +82,14 @@ This is a fun feature I tested but do not really use but worth sharing. By using
 
 ### Start by voice {#start-by-voice-id}
 <p>
-{{< image src="start-by-voice.gif" title="During a 15 minute period, the wakeup routine starts with a emulated sunrise" src_s="start-by-voice.gif" src_l="start-by-voice.gif" >}}
+{{< image src="start-by-voice.gif" title="During a 15 minute period, the wakeup routine starts with a emulated sunrise" >}}
 <br />You can use the {{< link "https://www.home-assistant.io/integrations/conversation/" "home assistant conversation" >}} from the computer or the app to start the coffee brewing by privacy first voice that by saying "turn on coffee maker". Honestly, the voice functionality in home assistant is limited, it's more a show then useful as you need to enter the conversation mode and then press the microphone.
 
 But if you do not mind to having a voice assistant such as Alexa or google home in your home you can get use that to kick off the coffee and then it allots more useful.
 </p> <br />
 
 ### Start by dropping the magic cube {#start-by-a-drop-id}
-{{< image src="aquara-magic-cube-drop.gif" title="Starting the grinding and brewing of the coffee by dropping the aquara magic cube" src_s="aquara-magic-cube-drop.gif" src_l="aquara-magic-cube-drop.gif" >}}
+{{< image src="aquara-magic-cube-drop.gif" title="Starting the grinding and brewing of the coffee by dropping the aquara magic cube" >}}
 
 I have several [Aquara Magic Cube](https://amzn.to/3k7Kb98) and I use the drop motion to kick off the coffee machine. It's a perfect motion when you are lazy and watching TV or in bed during the weekend when there is no wakeup routine.
 
