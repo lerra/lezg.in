@@ -30,16 +30,16 @@ This post will guide you through on how to connect a dumb Philips grind & brew h
 
 <!--more-->
 
-## Expectations
-I would ed
+## Pre-requierments
+My past experience with microcontrollers have been forced by my friend Peter to write LUA code for a rgb controller. Regarding electronics, that was my hobby before my first computer 1996 but on a basic level back then. But I am sure if there is a intresst and some time, this is doable for most of the people.
 
-## Hardware {#hardware-id}
+### Hardware {#hardware-id}
 * {{< link href="https://amzn.to/3aCMOwJ" content="Philips Grind & Brew HD7762" >}}
 * {{< link href="https://amzn.to/2ZyCvDt" content="ESP32 devkit c v4" >}}
   * I used ESP32 devkit c v4 30-pin but almost any ESP32 will do if you use the right pin's.
-* Non-contact liquid sensor from {{< link href="https://amzn.to/3k3dx8J" content="CQRobot" >}}
+* Non-contact liquid sensor from {{< link href="https://amzn.to/3k3dx8J" content="CQRobot" >}}, other sensors can also be used to be put inside of the tank.
+  * Not needed if you don't care if the coffee machine will grind & brew with out water in the tank.
 * cables & usb power adapter.
-
 
 ## Repository {#repository-id}
 [github](https://github.com/lerra/home-automation/tree/main/philips_grind_and_brew_hd7762_coffee_machine/)
@@ -50,7 +50,7 @@ A couple of years ago, I started with a wake-up routine with my privacy first ho
 
 So, I started to think, what's missing to make my mornings even more awesome. The idea with having fresh coffee would be a great. The only problem I had then was the time, then came the pandemic, as jay-z would say, I got 99 problems, but a time ain't one.
 
- I already had some wires, ESP's and relays already but I was unsure how the inside of the coffee machine was wired. I was speaking to my friend Peter over the phone that is so deep into the electronics that it is insane, and I told him  about what I was planning to do. He said that I might not need a relay to do this and could use the ESP to do this depending on the voltage. He found the {{< link href="philips-service-manual-grind-and-breew-hd7762.pdf" content="service manual online" >}}  and was checking it but could not find any details about the circuit board and without me thinking it through, we started to disassemble it.
+ I already had some wires, ESP's and relays already but I was unsure how the inside of the coffee machine was wired. I was speaking to my friend Peter over the phone that is so deep into the electronics that it is insane, and I told him  about what I was planning to do. He said that I might not need a relay to do this and could use the ESP to do this depending on the voltage. He found the {{< link href="philips-service-manual-grind-and-breew-hd7762.pdf" content="service manual online" >}}  and was checking it but could not find any details about the circuit board. We started to disassemble the coffee machine without me really thinking it through.
 
 One hour later, I measured with the multimeter to see where to hook into the circuit and we identified that the voltage is 4.3v and Peter told me that the ESP only supports 3.6V. We decided to test it out anyway and the sacrifice an ESP if it would get killed during the test as other have successfully been running even with 5V. The benefit of a successful test would be one less component (the relay).
 The circuit board was a lot denser  than I thought, and I have not soldered in 20 years, so we agreed that we would meet up to get some help and learn how to do it myself. It took a month before we did that due to the pandemic. Now, **working from home and no coffee for a month was challenging**.
@@ -78,7 +78,7 @@ void loop() {
 
 {{< image src="circuit-board-optimized.jpg" caption="The right solder joint is the on microswitch and the left one is the grind microswitch and ground was connected [here](connecting-ground-optimized.jpg)" title="The curcit board of the Philips Grind & Brew HD7762 with the cables soldered to grind and on microswitches" alt="The curcit board of the Philips Grind & Brew HD7762" width="70%" height="70%" >}}
 
-So, I started to evolve the code and halfway there I bumped over an article in my rss reader about a home assistant project built upon esphome. I realized I was looking into that project a while ago but forget the existence. Even if I have invested some time into the code, I realized that I would never come close to the features esphome. It is tightly integrated with home assistant, the possibility to update the code with the OTA (Over The Air, no need for a usb cable to debug or deploy) and a real time event source api for state & log updates and a rest api, both over json. So, I ported the code to the esphome yaml format and finished it. Bellow you can see what PIN's I used for the ESP32 30-pinout.
+So, I started to evolve the code and halfway there I bumped over an article in my rss reader about a home assistant project built upon esphome. I realized I was looking into that project a while ago but forgot the existence. Even if I have invested some time into the code, I realized that I would never come close to the features esphome. It is tightly integrated with home assistant, the possibility to update the code with the OTA (Over The Air, no need for a usb cable to debug or deploy) and a real time event source api for state & log updates and a rest api, both over json. So, I ported the code to the esphome yaml format and finished it. Bellow you can see what PIN's I used for the ESP32 30-pinout.
 
 {{< image src="ESP32-Pinout-1.jpg" caption="The 30 pins ESP32 I use is a 30 pin" title="The ESP32 pinout" alt="ESP32 PINS"  width="80%" height="80%" >}}In my case, I use the PIN D27 to connect to the "turn on" microswitch on the circuit, D26 is connected to the "start grinding" microswitch and ground to ground. For the CQRobot sensor, ground is connected to ground, VCC (red) to 3V3 and OUT to D23. This will differ depending on the ESP32 you have, checkout [electronics hub the PINs your ESP32 have](https://www.electronicshub.org/esp32-pinout/).
 
@@ -103,7 +103,7 @@ So, what do I mean by "smart"? From how I see it when I can connect the coffee m
 
 Since I got the coffee machine a part of the home automation setup, I now start grind & brewing when a motion sensor is triggered outside of the bedroom. This is also switching the wakeup music to the morning news channel.</p>
 ### Work from home coffee breaks {#wfh-breaks-id}
-This is a fun feature I tested but do not really use but worth sharing. By using the home assistant [precense feature](https://www.home-assistant.io/getting-started/presence-detection/) we can have used a state if a device or a person is home or on. This could be an app on your phone reporting GPS coordinates, your work laptop connected to your network. As I am using the ESP32 that controls the coffee machine, I can also use esphome report signal measurement for [specific bluetooth device](https://esphome.io/components/sensor/ble_rssi.html) (smartwatch, phone etc.) and decide how close it is to the coffee machine. During a test I started the coffee machine during a timeslot and when precense of multiple devices but it's not that useful as the WFH setup during the pandemic is in the kitchen close by the coffee machine.
+This is a fun feature I tested but do not really use but worth sharing. By using the home assistant [precense feature](https://www.home-assistant.io/getting-started/presence-detection/) we can have used a state if a device or a person is home or on. This could be an app on your phone reporting GPS coordinates, your work laptop connected to your network. As I am using the ESP32 that controls the coffee machine, I can also use esphome report signal measurement for [specific bluetooth device](https://esphome.io/components/sensor/ble_rssi.html) (smartwatch, phone etc.) and decide how close it is to the coffee machine. During a test I started the coffee machine during a timeslot and when presence of multiple devices but it's not that useful as the WFH setup during the pandemic is in the kitchen close by the coffee machine.
 
 ### Start by voice {#start-by-voice-id}
 <p>
