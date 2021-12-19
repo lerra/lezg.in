@@ -93,12 +93,14 @@ But if you do not mind to having a voice assistant such as Alexa or google home 
 
 I have several [Aquara Magic Cube](https://amzn.to/3k7Kb98) and I use the drop motion to kick off the coffee machine. It's a perfect motion when you are lazy and watching TV or in bed during the weekend when there is no wakeup routine.
 
-### Start through the app
+### Start through the app {#start-through-the-app-id}
 This is the most used way we get our fresh coffee and it's nice to kick off by the end of a power walk to have it ready and fresh when we enter our home. And honestly, sometimes when automation is introduced you quickly identify the corner cases when its get triggered. And Zhuowei Zhang is spot on on his tweet,
 {{< tweet 1254266079532154880 >}} 
 
-# Security
+# Security {#security}
 Esphome does [not (yet) support ssl/tls]( https://github.com/esphome/feature-requests/issues/133) if you dont run a ESP8266 but it is a [poor and unsecure implementation](https://esphome.io/components/mqtt.html?highlight=fingerprint#ssl-fingerprints). I recommend having separate network segments for both the server & ESP32, firewall the communication and use separate wpa2 ssid for the device until there is a TLS feature. 
+
+Since I wrote the article, a lightweight transport encryption for the api have been added to Home Assistant 2021.10 and esphome 2021.9 A special high five to [OttoWinter](https://github.com/OttoWinter) for the [feature](https://github.com/home-assistant/core/pull/56216), now I am waiting for the same for mqtt ;-). 
 
 # Safety
 Don't forget to turn on the "keep-warm" functionality on the coffee machine, this will make the appliance to automatically turn it self off after a set time. I highly recommend it to get a safety functionality outside of the code to take care of such if something would fail.

@@ -95,13 +95,14 @@ void loop() {
         
     </a></div>
 <p>I have several <a href="https://amzn.to/3k7Kb98" target="_blank" rel="noopener noreffer">Aquara Magic Cube</a> and I use the drop motion to kick off the coffee machine. It&rsquo;s a perfect motion when you are lazy and watching TV or in bed during the weekend when there is no wakeup routine.</p>
-<h3 id="start-through-the-app">Start through the app</h3>
+<h3 id="start-through-the-app-id">Start through the app</h3>
 <p>This is the most used way we get our fresh coffee and it&rsquo;s nice to kick off by the end of a power walk to have it ready and fresh when we enter our home. And honestly, sometimes when automation is introduced you quickly identify the corner cases when its get triggered. And Zhuowei Zhang is spot on on his tweet,
 <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Never spend 6 minutes doing something by hand when you can spend 6 hours failing to automate it</p>&mdash; Zhuowei Zhang (@zhuowei) <a href="https://twitter.com/zhuowei/status/1254266079532154880?ref_src=twsrc%5Etfw">April 26, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </p>
 <h1 id="security">Security</h1>
 <p>Esphome does <a href="https://github.com/esphome/feature-requests/issues/133" target="_blank" rel="noopener noreffer">not (yet) support ssl/tls</a> if you dont run a ESP8266 but it is a <a href="https://esphome.io/components/mqtt.html?highlight=fingerprint#ssl-fingerprints" target="_blank" rel="noopener noreffer">poor and unsecure implementation</a>. I recommend having separate network segments for both the server &amp; ESP32, firewall the communication and use separate wpa2 ssid for the device until there is a TLS feature.</p>
+<p>Since I wrote the article, a lightweight transport encryption for the api have been added to Home Assistant 2021.10 and esphome 2021.9 A special high five to <a href="https://github.com/OttoWinter" target="_blank" rel="noopener noreffer">OttoWinter</a> for the <a href="https://github.com/home-assistant/core/pull/56216" target="_blank" rel="noopener noreffer">feature</a>, now I am waiting for the same for mqtt ;-).</p>
 <h1 id="safety">Safety</h1>
 <p>Don&rsquo;t forget to turn on the &ldquo;keep-warm&rdquo; functionality on the coffee machine, this will make the appliance to automatically turn it self off after a set time. I highly recommend it to get a safety functionality outside of the code to take care of such if something would fail.</p>
 <h1 id="creds">Creds</h1>
