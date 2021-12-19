@@ -11,7 +11,7 @@ resources:
 page:
     theme: "wide"
 
-tags: ["Home Assistant", "ESPHome", "DOODS", "tensorflow"]
+tags: ["Home Assistant", "ESPHome", "DOODS", "Tensorflow"]
 categories: ["Documentation"]
 
 lightgallery: true
@@ -19,7 +19,7 @@ lightgallery: true
 toc:
   auto: false
  
-draft: false
+draft: true
 ---
 
 This privacy first smart home article will explain how to get the open source feature to see what is in your fridge while you are doing your grocery shopping.
@@ -63,8 +63,11 @@ image_processing:
     #detector: edgetpu
     detector: default
     file_out:
-      - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
-      - "/camera-storage/fridge/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}\\
+      _latest.jpg"
+      - "/camera-storage/fridge/\\
+        {{ camera_entity.split('.')[1] }}_\\
+        {{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
     source:
       - entity_id: camera.kitchen_m5cam_fridge
     confidence: 40
@@ -77,7 +80,8 @@ To be able to always see the latest image captured in the Home Assistant (throug
 camera:
   - platform: local_file
     name: doods_kitchen_m5cam_fridge
-    file_path: /tmp/kitchen_m5cam_fridge_latest.jpg
+    file_path: /tmp/kitchen_m5cam\\
+    _fridge_latest.jpg
 ```
 
 Don't forget to add the path to Home Assistant configuration.yaml so you don't get block from use it
