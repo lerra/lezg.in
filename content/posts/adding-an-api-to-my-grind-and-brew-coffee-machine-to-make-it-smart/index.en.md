@@ -11,7 +11,7 @@ resources:
 page:
     theme: "classic"
 
-#tags: ["Home Assistant", "ESPHome"]
+#tags: ["Home-Assistant", "ESPHome"]
 categories: ["Documentation"]
 
 lightgallery: true
