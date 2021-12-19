@@ -11,8 +11,8 @@ resources:
 page:
     theme: "wide"
 
-tags: ["home assistant", "esphome", "doods", "tensorflow"]
-categories: ["documentation"]
+tags: ["Home Assistant", "ESPHome", "DOODS", "tensorflow"]
+categories: ["Documentation"]
 
 lightgallery: true
 
@@ -29,7 +29,7 @@ This privacy first smart home article will explain how to get the open source fe
 ## Pre-requirements {#pre-requierments-id}
 
 ### Hardware {#hardware-id}
-I used a M5Cam (a ESP32Cam hardware) as I already had one. To my surprise when I was using it for another project I bumped into heating issues and found out that it is a known issue when running it 24/7. So for me, it is a perfect use case as I get cooling out of the box ;-) If you have a powerful cpu (and not a raspberry pi) you would not need a google Coral USB hardware if you don't have the need to ensure to 100% that you get a snapshot every time you open your fridge.
+I used a M5Cam (a ESP32Cam hardware) as I already had one. To my surprise when I was using it for another project I bumped into heating issues and found out that it is a known issue when running it 24/7. So for me, it is a perfect use case as I get cooling out of the box ;-) If you have a powerful cpu (and not a raspberry pi) you would not need a Google Coral USB hardware to offload the image processing (TPU) the if you don't have the need to ensure to 100% that you get a snapshot every time you open your fridge. FIXA OVAN
 
 ### Software {#software-id}
 You need to setup [DOODS](https://github.com/snowzach/doods/), [ESPHome](https://www.esphome.io/), [Home Assistant](https://www.home-assistant.io/installation) and some remote/VPN capabilities to Home Assistant. My setup is built with privacy in mind, therefor I use solutions I have full control of so I use my own VPN. I would not recommend exposing your Home Assistant directly to the Internet, if you are not good at ensuring you always have the latest version due to security patches. If you don't want to build your own VPN I would recommend the cloud function of Home Assistant: [Nabucasa](https://www.nabucasa.com/). It is supposedly built with [privacy](https://www.nabucasa.com/privacy/) in mind and is support the company behind Home Assistant.

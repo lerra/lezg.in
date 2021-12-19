@@ -11,8 +11,8 @@ resources:
 page:
     theme: "classic"
 
-#tags: ["home assistant", "esphome"]
-categories: ["documentation"]
+#tags: ["Home Assistant", "ESPHome"]
+categories: ["Documentation"]
 
 lightgallery: true
 
