@@ -1,0 +1,101 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>home assistant - Tag - Lezgin Bakircioglu</title><link>https://lezg.in/tags/home-assistant/</link><description>home assistant - Tag - Lezgin Bakircioglu</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 19 Dec 2021 16:29:01 +0800</lastBuildDate><atom:link href="https://lezg.in/tags/home-assistant/" rel="self" type="application/rss+xml"/><item><title>Privacy first fridge camera empowered with machine learning so I know what to get during grocery shopping</title><link>https://lezg.in/fridge-cam-with-home-assistant-and-machine-learning/</link><pubDate>Sun, 19 Dec 2021 16:29:01 +0800</pubDate><author>lerra.en</author><guid>https://lezg.in/fridge-cam-with-home-assistant-and-machine-learning/</guid><description><![CDATA[<p>The result of this privacy first smart home article will explain how to get the feature to see what is in your fridge while you are doing your grocery shopping with an open source solution.</p>
+<h1 id="timelapse-id">Timelapse of the result</h1>
+<div style="text-align: center"><a target="_blank" class="lightgallery" href="/fridge-cam-with-home-assistant-and-machine-learning/fridge-snapshots.gif" title="Fridge timelaps" data-thumbnail="/fridge-cam-with-home-assistant-and-machine-learning/fridge-snapshots.gif">
+        
+    </a></div>
+<h2 id="pre-requierments-id">Pre-requirements</h2>
+<h3 id="hardware-id">Hardware</h3>
+<p>I used a m5cam as I already had one, to my surprise when I was using it for another project I bumped into heading issues and found out that it is a known issue when running it 24/7. So for me, it is a perfect use case as I get cooling out of the box ;-) If you have a powerful cpu (and not a raspberry pi) you would not need a google coral usb hardware if you don&rsquo;t have the need to ensure to 100% that you get a snapshot every time you open your fridge.</p>
+<h3 id="software-id">Software</h3>
+<p>You need to setup <a href="https://github.com/snowzach/doods/" target="_blank" rel="noopener noreffer">doods</a>, <a href="https://www.esphome.io/" target="_blank" rel="noopener noreffer">esphome</a>, <a href="https://www.home-assistant.io/installation" target="_blank" rel="noopener noreffer">Home Assistant</a> and some remote/vpn capabilities to home assistant. My setup is built with privacy in mind, there for I use solutions I have full control of so I use my own vpn. I would not recommend exposing your Home Assistant directly to the internet if you are not good at ensuring you always have the latest version due to security patches. If you don&rsquo;t want to build your own vpn I would recommend the cloud function of Home Assistant, <a href="https://www.nabucasa.com/" target="_blank" rel="noopener noreffer">Nabucasa</a>. It is supposedly built with <a href="https://www.nabucasa.com/privacy/" target="_blank" rel="noopener noreffer">privacy</a> in mind and would support the company behind Home Assistant.</p>
+<h2 id="the-story-id">The story</h2>
+<p>During the pandemic I had a lot more time for obvious reasons so I decided to build something with my m5cam, basically a esp32 hardware with a camera. I managed to get esphome to with with it and easily get it connected to Home Assistant, I had an idea on monitor on who does the dishes the most but identify who&rsquo;s hand it is above the dishes was a lot harder than I thought (please help me if you know how!) and I did run into heating issues when I was running it for 24/7. So I shifted focus to see if I could put it somewhere that would automatically cool it without me needing to add fans and such, so the fridge was the natural place to test.</p>
+<p>I started to wire it and put it with the angel to capture the opening of the fridge when it is open so I mounted it to the door part of the fridge. It was fun to see the stream when I was opening and closing the fridge but I didn&rsquo;t really want to see a dark picture when I was grocery shopping. So step two was to ensure I always had a image of latest opening of the fridge, I started to test with some switches and motion detection functionality to capture the picture when it is open but I did not get it to work that good as it was almost always blurry, the door was also not in the &ldquo;perfect state&rdquo; to capture the view of the fridge and I would block the view when I was taking grocery in or out.</p>
+<p>To solve that, I found that there is a tensorflow models that supports the object fridge so I configured <a href="https://github.com/snowzach/doods/" target="_blank" rel="noopener noreffer">doods</a> and tested to post a example image from the fridge when the door is open through curl and one of the objects detected was fridge. I started to setup the <a href="https://www.home-assistant.io/integrations/doods/" target="_blank" rel="noopener noreffer">integration between home assistant and doods</a></p>
+<p>The last step was to show the latest captured image in Home Assistant, the doods integration has some options for the file_out, setting dynamic parameters to the filename. So I have one with the time/date in the filename and a second one that is named latest. With that I can use Home Assistant to emulate a camera by reading the local file and then show it in the interface that would also nicely show up in the app (you can see the screenshot in the feature image on top of this page).</p>
+<h2 id="the-solution-id">The solution</h2>
+<p>I use the latest esphome docker image to be able to use the latest features instead installing via python pip, just make sure you have esphome version 2021.9 if you use pip. <a href="https://github.com/lerra/home-automation/blob/main/fridge-camera/espcam-fridge-1.yaml" target="_blank" rel="noopener noreffer">Get the example esphome yaml file from my guthub</a> for the esp32 cam, modify it with your needs.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker pull esphome/esphome
+docker run --rm -v &#34;${PWD}&#34;:/config -it esphome/esphome run espcam-fridge-1.yaml
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.home-assistant.io/integrations/esphome/" target="_blank" rel="noopener noreffer">Follow the official home assistant documentation to add a esphome device to home assistant</a> and <a href="https://github.com/snowzach/doods/" target="_blank" rel="noopener noreffer">download doods and follow the instructions to get it up and running</a>.</p>
+<p>After that you can configure Home Assistant to use doods for processing the images from the esp32 camera and store images when a fridge is detected. Here is the relavent section from my Home Assistant configuration.yaml:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">image_processing:
+  - platform: doods
+    scan_interval: 100
+    url: &#34;http://&lt;ip-to-doods&gt;:&lt;port-to-doods&gt;&#34;
+    #detector: edgetpu
+    detector: default
+    file_out:
+      - &#34;/tmp/{{ camera_entity.split(&#39;.&#39;)[1] }}_latest.jpg&#34;
+      - &#34;/camera-storage/fridge/{{ camera_entity.split(&#39;.&#39;)[1] }}_{{ now().strftime(&#39;%Y%m%d_%H%M%S&#39;) }}.jpg&#34;
+    source:
+      - entity_id: camera.kitchen_m5cam_fridge
+    confidence: 40
+    labels:
+      - refrigerator
+</code></pre></td></tr></table>
+</div>
+</div><p>To be able to always see the latest image captured in the Home Assistant (through the app or web) you will need to emulate a camera from the local file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">camera:
+  - platform: local_file
+    name: doods_kitchen_m5cam_fridge
+    file_path: /tmp/kitchen_m5cam_fridge_latest.jpg
+</code></pre></td></tr></table>
+</div>
+</div><p>Don&rsquo;t forget to add the path to Home Assistant configuration.yaml so you don&rsquo;t get blocket from use it</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">homeassistant:
+  allowlist_external_dirs:
+    - /tmp
+
+</code></pre></td></tr></table>
+</div>
+</div><p>If everything works you can now add the camera in <a href="https://www.home-assistant.io/lovelace/picture-entity/" target="_blank" rel="noopener noreffer">lovelace with the picture entity card</a>.</p>
+<h1 id="timelapse-directors-cut-id">The directors cut</h1>
+<p>Here are the images I removed from the top gif. It is not perfect as it will pull an image when it detects a fridge regardless of what is in the picture besides the fridge ;-)
+<div style="text-align: center"><a target="_blank" class="lightgallery" href="/fridge-cam-with-home-assistant-and-machine-learning/fridge-fails.gif" title="Fridge fail timelaps" data-thumbnail="/fridge-cam-with-home-assistant-and-machine-learning/fridge-fails.gif">
+        
+    </a></div></p>
+<h1 id="timelapse-id">Creds</h1>
+<p>Creds goes to the home assistant, doods, esphome team and airijia.com for the esp32cam esphome example. The platform, and frameworks they have built is fantastic and I hope I could drive more users to focus more on a privacy first setup. A special high five to <a href="https://github.com/OttoWinter" target="_blank" rel="noopener noreffer">OttoWinter</a> for the <a href="https://github.com/home-assistant/core/pull/56216" target="_blank" rel="noopener noreffer">pull request</a> to esphome that added lightweight transport encryption to the api, now I am waiting for the same for mqtt ;-)</p>]]></description></item></channel></rss>
