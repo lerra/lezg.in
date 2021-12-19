@@ -1,6 +1,6 @@
 ---
 title: "Privacy first fridge camera empowered with machine learning so I know what to get during grocery shopping"
-date: 2021-12-09T21:29:01+08:00
+date: 2021-12-19T16:29:01+08:00
 lastmod: 2021-12-19T21:29:01+08:00
 description: "The result of this privacy first smart home article will explain how to get the feature to see what is in your fridge while you are doing your grocery shopping with open source solution."
 resources:
@@ -19,7 +19,7 @@ lightgallery: true
 toc:
   auto: false
  
-draft: true
+draft: false
 ---
 
 The result of this privacy first smart home article will explain how to get the feature to see what is in your fridge while you are doing your grocery shopping with an open source solution.
@@ -46,15 +46,15 @@ The last step was to show the latest captured image in Home Assistant, the doods
 
 ## The solution {#the-solution-id}
 
-I use the latest esphome docker image to be able to use the latest features instead installing via python pip,
+I use the latest esphome docker image to be able to use the latest features instead installing via python pip, just make sure you have esphome version 2021.9 if you use pip. [Get the example esphome yaml file from my guthub](https://github.com/lerra/home-automation/blob/main/fridge-camera/espcam-fridge-1.yaml) for the esp32 cam, modify it with your needs.
 ```
 docker pull esphome/esphome
 docker run --rm -v "${PWD}":/config -it esphome/esphome run espcam-fridge-1.yaml
 ```
 
-Follow the official home assistant documentation to add a esphome device to home assistant, https://www.home-assistant.io/integrations/esphome/
+[Follow the official home assistant documentation to add a esphome device to home assistant](https://www.home-assistant.io/integrations/esphome/) and [download doods and follow the instructions to get it up and running](https://github.com/snowzach/doods/).
 
-My Home Assistant configuration.yaml
+After that you can configure Home Assistant to use doods for processing the images from the esp32 camera and store images when a fridge is detected. Here is the relavent section from my Home Assistant configuration.yaml:
 ```
 image_processing:
   - platform: doods
@@ -72,13 +72,22 @@ image_processing:
       - refrigerator
 ```
 
-To be able to always see the latest image captured in the home assistant (through the app)
+To be able to always see the latest image captured in the Home Assistant (through the app or web) you will need to emulate a camera from the local file
 ```
 camera:
   - platform: local_file
     name: doods_kitchen_m5cam_fridge
     file_path: /tmp/kitchen_m5cam_fridge_latest.jpg
 ```
+
+Don't forget to add the path to Home Assistant configuration.yaml so you don't get blocket from use it
+```
+homeassistant:
+  allowlist_external_dirs:
+    - /tmp
+
+```
+If everything works you can now add the camera in [lovelace with the picture entity card](https://www.home-assistant.io/lovelace/picture-entity/).
 
 # The directors cut {#timelapse-directors-cut-id}
 Here are the images I removed from the top gif. It is not perfect as it will pull an image when it detects a fridge regardless of what is in the picture besides the fridge ;-)
