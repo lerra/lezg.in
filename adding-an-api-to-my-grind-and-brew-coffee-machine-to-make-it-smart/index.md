@@ -9,10 +9,10 @@ This post will guide you through on how to connect a dumb Philips grind & brew h
 My past experience with microcontrollers have been forced by my friend Peter to write LUA code for a rgb controller. Regarding electronics, that was my hobby before my first computer 1996 but on a basic level back then. But I am sure if there is a intresst and some time, this is doable for most of the people.
 
 ### Hardware {#hardware-id}
-* {{< link href="https://amzn.to/3aCMOwJ" content="Philips Grind & Brew HD7762" >}}
-* {{< link href="https://amzn.to/2ZyCvDt" content="ESP32 devkit c v4" >}}
+* Philips Grind & Brew HD7762
+* ESP32 devkit c v4
   * I used ESP32 devkit c v4 30-pin but almost any ESP32 will do if you use the right pin's.
-* Non-contact liquid sensor from {{< link href="https://amzn.to/3k3dx8J" content="CQRobot" >}}, other sensors can also be used to be put inside of the tank.
+* Non-contact liquid sensor from CQRobot, other sensors can also be used to be put inside of the tank.
   * Not needed if you don't care if the coffee machine will grind & brew with out water in the tank.
 * cables & usb power adapter.
 
@@ -91,7 +91,7 @@ But if you do not mind to having a voice assistant such as Alexa or google home 
 ### Start by dropping the magic cube {#start-by-a-drop-id}
 {{< image src="aquara-magic-cube-drop.gif" title="Starting the grinding and brewing of the coffee by dropping the aquara magic cube" >}}
 
-I have several [Aquara Magic Cube](https://amzn.to/3k7Kb98) and I use the drop motion to kick off the coffee machine. It's a perfect motion when you are lazy and watching TV or in bed during the weekend when there is no wakeup routine.
+I have several Aquara Magic Cube and I use the drop motion to kick off the coffee machine. It's a perfect motion when you are lazy and watching TV or in bed during the weekend when there is no wakeup routine.
 
 ### Start through the app {#start-through-the-app-id}
 This is the most used way we get our fresh coffee and it's nice to kick off by the end of a power walk to have it ready and fresh when we enter our home. And honestly, sometimes when automation is introduced you quickly identify the corner cases when its get triggered. And Zhuowei Zhang is spot on on his tweet,
