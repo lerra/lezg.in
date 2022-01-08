@@ -17,9 +17,9 @@ categories: ["Documentation"]
 lightgallery: true
 
 toc:
-  auto: false
+  auto: true
  
-draft: true
+draft: false
 ---
 
 This privacy first smart home article will explain how to get the open source feature to see what is in your fridge while you are doing your grocery shopping.
