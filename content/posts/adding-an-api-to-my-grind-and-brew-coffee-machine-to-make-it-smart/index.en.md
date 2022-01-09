@@ -120,7 +120,7 @@ I have several Aquara Magic Cube and I use the drop motion to kick off the coffe
 
 ### Start through the app {#start-through-the-app-id}
 This is the most used way we get our fresh coffee and it's nice to kick off by the end of a power walk to have it ready and fresh when we enter our home. And honestly, sometimes when automation is introduced you quickly identify the corner cases when its get triggered. And Zhuowei Zhang is spot on on his tweet,
-{{< tweet 1254266079532154880 >}} 
+{{< tweet user=zhuowei id=1254266079532154880 >}} 
 
 # Security {#security}
 Esphome does [not (yet) support ssl/tls]( https://github.com/esphome/feature-requests/issues/133) if you dont run a ESP8266 but it is a [poor and unsecure implementation](https://esphome.io/components/mqtt.html?highlight=fingerprint#ssl-fingerprints). I recommend having separate network segments for both the server & ESP32, firewall the communication and use separate wpa2 ssid for the device until there is a TLS feature. 
