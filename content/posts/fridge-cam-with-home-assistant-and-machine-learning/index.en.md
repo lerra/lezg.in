@@ -97,7 +97,7 @@ If everything works you can now add the camera in the Home Assistant frontend [l
 
 # The directors cut {#timelapse-directors-cut-id}
 Here are the images I removed from the top gif. It is not perfect as it will pull an image when it detects a fridge regardless of what is in the picture besides the fridge ;-)
-{{< figure src="fridge-fails.gif" title="Fridge fail timelaps" alt="fridge fails captures"  width="50%" height="50%" >}}
+{{< figure  src="fridge-fails.gif" title="Fridge fail timelaps" alt="fridge fails captures"  width="50%" height="50%" >}}
 
 # Credits {#timelapse-id}
 Credits goes to the Home Assistant, DOODS, ESPHome team and airijia.com for the ESP32Cam ESPHome example. The platform, and frameworks they have built is fantastic and I hope I could drive more users to focus more on a privacy first setup. A special high five to [OttoWinter](https://github.com/OttoWinter) for the [pull request](https://github.com/home-assistant/core/pull/56216) to ESPHome that added lightweight transport encryption to the API, now I am waiting for the same for MQTT ;-)
