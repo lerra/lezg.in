@@ -1,4 +1,4 @@
-baseURL = "https://hugodoit.pages.dev"
+baseURL = "https://lezg.in"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "en"
@@ -11,7 +11,7 @@ themesDir = "themes"
 
 # website title
 # 网站标题
-title = "DoIt"
+title = "Lezgin Bakircioglu"
 
 # whether to use robots.txt
 # 是否使用 robots.txt
@@ -233,7 +233,7 @@ enableEmoji = true
     # 页面头部导航栏标题配置
     # theme change mode ("switch", "select")
     # 主题切换模式 ("switch", "select")
-    themeChangeMode = "select"
+    # themeChangeMode = "select"
     # Header title config
     # 页面头部导航栏标题配置
     [params.header.title]
