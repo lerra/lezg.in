@@ -1,7 +1,7 @@
 ---
 title: "Adding an API to my grind and brew coffee machine to make it smart"
 date: 2021-02-19T21:29:01+08:00
-lastmod: 2021-12-19T13:29:01+08:00
+lastmod: 2022-1-3T13:29:01+08:00
 description: "This post will guide you through on how to connect a dumb Philips grind & brew hd7762 coffee machine to your privacy first home automation solution based on home assistant and esphome. Most important, with a high Wife Acceptance Factor."
 resources:
 - name: "featured-image"

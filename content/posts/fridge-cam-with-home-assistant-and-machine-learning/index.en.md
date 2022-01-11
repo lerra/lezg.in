@@ -1,12 +1,12 @@
 ---
-title: "Privacy first fridge camera empowered with machine learning so I know what to get during grocery shopping"
-date: 2021-12-19T16:29:01+08:00
-lastmod: 2021-12-19T21:29:01+08:00
-description: "The result of this privacy first smart home article will explain how to get the feature to see what is in your fridge while you are doing your grocery shopping with open source solution. Most important, with a high Wife Acceptance Factor."
+title: "The privacy first fridge camera that will help you know what is in the fridge during your grocery shopping"
+date: 2022-01-11T6:29:01+08:00
+lastmod: 2022-01-11T11:29:01+08:00
+description: "This privacy first smart home article will explain how to get the open source feature to see what is in your fridge while you are doing your grocery shopping. Most important, with a high Wife Acceptance Factor. Is it useful? Cind off. Is it cool? Yes. Is it easy to implement? Yes. Does it have an \"app\"? Yes."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
-  
+
   
 page:
     theme: "wide"
@@ -22,15 +22,19 @@ toc:
 draft: false
 ---
 
-This privacy first smart home article will explain how to get the open source feature to see what is in your fridge while you are doing your grocery shopping. Most important, with a high Wife Acceptance Factor.
+This privacy first smart home article will explain how to get the open source feature to see what is in your fridge while you are doing your grocery shopping. Most important, with a high Wife Acceptance Factor. Is it useful? Cind off. Is it cool? Yes. Is it easy to implement? Yes. Does it have an "app"? Yes.
 <!--more-->
 # Timelapse of the result {#timelapse-id}
-Here is a timelapse over two months on my fridge from the solution.
-{{< figure src="fridge-snapshots.gif" title="Fridge timelaps" alt="fridge snapshots"  width="50%" height="50%" >}}
+Here is a timelapse for the first two months on my fridge from the solution. The yellow box and text are the markers from machine learning image processing. It states the likeliness that it is a fridge in % and what area it identifies as the fridge.
+{{< figure src="fridge-snapshots.gif" alt="fridge snapshots"  width="50%" height="50%" >}}
 ## Pre-requirements {#pre-requierments-id}
 
 ### Hardware {#hardware-id}
-I used an M5Cam (an ESP32Cam hardware) as I already had one. To my surprise when I was using it for another project I bumped into heating issues and found out that it is a known issue when running it 24/7. So for me, it is a perfect use case as I get cooling out of the box ;-) If you have a powerful cpu (and not a Raspberry Pi) you would not need a Google Coral USB hardware to offload the image processing (TPU). If you have the need of to be 100% sure you get a snapshot every time you open the fridge, then I recommend to use the Google Coral USB hardware or a GPU to offload the image processing.
+I used an M5Cam (an ESP32Cam hardware) as I already had one. To my surprise when I was using it for another project I bumped into heating issues and found out that it is a known issue when running it 24/7. So for me, it is a perfect use case as I get cooling out of the box ;-) 
+
+Besides the camera, you will need to have a long USB cable, preferable in the same color as the fridge and embedded in the strip. You can use any time of camera that will show up in Home Assistant as the camera entity but idealy, to get a high WAF (Wife acceptance factor) score, you need to keep it tiny and preferably with a nice case. 
+
+If you have a machine with a powerful cpu (not recommending a Raspberry Pi), you would not need a Google Coral USB hardware to offload the image processing (TPU). If you have the need of to be 100% sure you get a snapshot every time you open the fridge, then I recommend to use the Google Coral USB hardware or a GPU to offload the image processing. As you see, the hardware part is not that advance :-)
 
 ### Software {#software-id}
 You need to setup [DOODS](https://github.com/snowzach/doods/), [ESPHome](https://www.esphome.io/), [Home Assistant](https://www.home-assistant.io/installation) and some remote/VPN capabilities to Home Assistant. My setup is built with privacy in mind, therefore I use solutions I have full control of so I use my own VPN. I would not recommend exposing your Home Assistant directly to the Internet, if you are not good at ensuring you always have the latest version due to security patches. If you don't want to build your own VPN I would recommend the cloud function of Home Assistant: [Nabucasa](https://www.nabucasa.com/). It is supposedly built with [privacy](https://www.nabucasa.com/privacy/) in mind and is the supporting company behind Home Assistant.
@@ -47,13 +51,13 @@ The last step was to show the latest captured image in Home Assistant. The DOODS
 
 ## The solution {#the-solution-id}
 
-I use the latest esphome docker image to be able to use the latest features of installing via "python pip", just make sure you have ESPHome version 2021.9. [Get the example esphome yaml file from my guthub](https://github.com/lerra/home-automation/blob/main/fridge-camera/espcam-fridge-1.yaml) for the esp32 cam, modify it with your needs.
+I use the latest esphome docker image to be able to use the latest features of installing via "python pip", just make sure you have ESPHome version 2021.9. [Get the M5Cam esphome yaml file from my guthub](https://github.com/lerra/home-automation/blob/main/fridge-camera/espcam-fridge-1.yaml), modify it with your needs.
 ```
 docker pull esphome/esphome
 docker run --rm -v "${PWD}":/config -it esphome/esphome run espcam-fridge-1.yaml
 ```
 
-[Follow the official home assistant documentation to add a ESPHome device to Home Assistant](https://www.home-assistant.io/integrations/esphome/) and [download DOODS and follow the instructions to get it up and running](https://github.com/snowzach/doods/).
+Follow the official home assistant documentation to [add a ESPHome device to Home Assistant](https://www.home-assistant.io/integrations/esphome/) and [setup DOODS](https://github.com/snowzach/doods/).
 
 After that you can configure Home Assistant to use DOODS for processing the images from the ESP32 camera and store images when the object "fridge" is detected. Here is the relevant section from my Home Assistant configuration.yaml:
 ```
