@@ -19,7 +19,7 @@ lightgallery: true
 toc:
   auto: true
  
-draft: true
+draft: false
 ---
 
 This privacy first smart home article will explain how to get the open source feature to see what is in your fridge while you are doing your grocery shopping. Most important, with a high Wife Acceptance Factor.
@@ -100,4 +100,4 @@ Here are the images I removed from the top gif. It is not perfect as it will pul
 {{< figure  src="fridge-fails.gif" title="Fridge fail timelaps" alt="fridge fails captures"  width="50%" height="50%" >}}
 
 # Credits {#timelapse-id}
-Credits goes to the Home Assistant, DOODS, ESPHome team and airijia.com for the ESP32Cam ESPHome example. The platform, and frameworks they have built is fantastic and I hope I could drive more users to focus more on a privacy first setup. A special high five to [OttoWinter](https://github.com/OttoWinter) for the [pull request](https://github.com/home-assistant/core/pull/56216) to ESPHome that added lightweight transport encryption to the API, now I am waiting for the same for MQTT ;-)
+Credits goes to the Home Assistant-, DOODS-, ESPHome- team and airijia.com for the ESP32Cam ESPHome example. The platform, and frameworks they have built is fantastic and I hope I could drive more users to focus more on a privacy first setup. A special high five to [OttoWinter](https://github.com/OttoWinter) for the [pull request](https://github.com/home-assistant/core/pull/56216) to ESPHome that added lightweight transport encryption to the API, now I am waiting for the same for MQTT ;-) Btw, feel free to send a [pull request to the article](https://github.com/lerra/lezg.in/blob/master/content/posts/fridge-cam-with-home-assistant-and-machine-learning/index.en.md) or reach out on twitter if you find any errors.
